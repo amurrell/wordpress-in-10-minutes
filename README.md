@@ -5,8 +5,8 @@ Requirements:
 - You will need to install **docker** and **docker-compose** on your own.
 - Setup a **remote** mysql connection, possibly with [cloud SQL](https://cloud.google.com/sql/), [AWS RDS](https://aws.amazon.com/rds/), or other.
 
-    - Do this in app.yaml for production.
-    - Do this in conf/wp-config.php in dev (docker weird about env vars)
+    - Edit database environmental values in app.yaml for production.
+    - Write `define()`s in conf/wp-config.php in dev (docker weird about env vars)
 
 ## Local Dev - Install & Run - Docker Compose
 
@@ -29,6 +29,12 @@ sudo docker run -d -p 3000:8080 --net=host -v `pwd | sed 's,/*[^/]\+/*$,,'`:/var
 ```
 
 Go to [http://localhost:8080](http://localhost:8080)
+
+## Deploy to production (Google App Engine)
+
+Read the [DEPLOY.md](https://github.com/amurrell/wordpress-in-10-minutes/blob/master/DEPLOY.md) doc for instructions.
+
+- Be sure to make an app engine project and change your app.yaml, deploy.sh files to match.
 
 ---
 
